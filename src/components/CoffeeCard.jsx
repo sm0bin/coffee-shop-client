@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Swal from 'sweetalert2';
 
-const CoffeeCard = ({ coffee }) => {
+const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
     const navigate = useNavigate();
     const {
         _id,
@@ -12,10 +12,10 @@ const CoffeeCard = ({ coffee }) => {
     } = coffee;
 
     const handleView = () => {
-        navigate(`/coffee/${_id}`);
+        navigate(`/coffees/${_id}`);
     }
     const handleUpdate = () => {
-        navigate(`/update-coffee/${_id}`)
+        navigate(`/coffees/${_id}/edit`)
     }
     const handleDelete = () => {
         Swal.fire({
@@ -39,6 +39,8 @@ const CoffeeCard = ({ coffee }) => {
                                 'Your file has been deleted.',
                                 'success'
                             )
+                            const remainingCoffees = coffees.filter(coffee => coffee._id !== _id);
+                            setCoffees(remainingCoffees);
                         }
                     })
             }
@@ -78,6 +80,8 @@ const CoffeeCard = ({ coffee }) => {
 
 CoffeeCard.propTypes = {
     coffee: PropTypes.object,
+    coffees: PropTypes.array,
+    setCoffees: PropTypes.func,
 }
 
 export default CoffeeCard;

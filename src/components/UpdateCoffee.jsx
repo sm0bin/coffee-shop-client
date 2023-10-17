@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import BackToHome from "./BackToHome";
 
@@ -13,6 +13,7 @@ const UpdateCoffee = () => {
         details,
         photo,
     } = useLoaderData();
+    const navigate = useNavigate();
 
     const handleAddCoffee = (e) => {
         e.preventDefault();
@@ -42,6 +43,7 @@ const UpdateCoffee = () => {
                         'success'
                     )
                     e.target.reset();
+                    navigate("/");
                 }
             });
     }
