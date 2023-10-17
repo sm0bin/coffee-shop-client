@@ -8,11 +8,15 @@ import "./index.css";
 import Root from "./components/Root";
 import Home from "./components/Home";
 import AddCoffee from "./components/AddCoffee";
+import CoffeeDetails from "./components/CoffeeDetails";
+import UpdateCoffee from "./components/UpdateCoffee";
+import ErrorPage from "./components/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -24,6 +28,16 @@ const router = createBrowserRouter([
         path: "/add-coffee",
         element: <AddCoffee></AddCoffee>,
 
+      },
+      {
+        path: "/update-coffee/:id",
+        element: <UpdateCoffee></UpdateCoffee>,
+        loader: ({ params }) => fetch(`http://localhost:5500/coffees/${params.id}`),
+      },
+      {
+        path: "/coffee/:id",
+        element: <CoffeeDetails></CoffeeDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5500/coffees/${params.id}`),
       },
     ]
   },
