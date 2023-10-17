@@ -19,6 +19,34 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+            <section className="w-full bg-orange-50 py-14">
+                <div className="flex justify-between gap-10 max-w-7xl mx-auto">
+
+
+                    <div className="">
+                        <img src="/images/icons/1.svg" alt="" />
+                        <h3 className="font-rancho text-4xl mt-4 mb-2">Awesome Aroma</h3>
+                        <p>You will definitely be a fan of the design & aroma of your coffee</p>
+                    </div>
+                    <div className="">
+                        <img src="/images/icons/2.svg" alt="" />
+                        <h3 className="font-rancho text-4xl mt-4 mb-2">High Quality</h3>
+                        <p>Your coffee is brewed by first roasting the green coffee beans</p>
+                    </div>
+                    <div className="">
+                        <img src="/images/icons/3.svg" alt="" />
+                        <h3 className="font-rancho text-4xl mt-4 mb-2">Pure Grades</h3>
+                        <p>The coffee is made of the green coffee beans which you will love</p>
+                    </div>
+                    <div className="">
+                        <img src="/images/icons/4.svg" alt="" />
+                        <h3 className="font-rancho text-4xl mt-4 mb-2">Proper Roasting</h3>
+                        <p>We served the coffee to you maintaining the best quality</p>
+                    </div>
+
+
+                </div>
+            </section>
 
             <section className="mt-32">
                 <h4 className="text-center text-xl">--- Sip & Savor ---</h4>
