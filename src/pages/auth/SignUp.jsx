@@ -49,7 +49,7 @@ const SignUp = () => {
                         // const creationTime = result.metadata?.creationTime;
                         const user = { imgUrl, name, email };
                         // toast.success('Sign Up Successful.');
-                        fetch("http://localhost:5500/users", {
+                        fetch("https://coffee-shop-server-sm.vercel.app/users", {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify(user),

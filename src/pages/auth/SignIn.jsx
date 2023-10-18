@@ -26,7 +26,7 @@ const SignIn = () => {
                 navigate(location?.state ? location.state : '/');
 
                 const user = { email, lastLoggedAt: result.user?.metadata?.lastSignInTime };
-                fetch(`http://localhost:5500/users`, {
+                fetch(`https://coffee-shop-server-sm.vercel.app/users`, {
                     method: "PATCH",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(user),

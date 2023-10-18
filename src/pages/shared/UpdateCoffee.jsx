@@ -28,7 +28,7 @@ const UpdateCoffee = () => {
             photo: e.target.photo.value,
         };
         console.log(updateCoffee);
-        fetch(`http://localhost:5500/coffees/${_id}`, {
+        fetch(`https://coffee-shop-server-sm.vercel.app/coffees/${_id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updateCoffee),

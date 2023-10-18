@@ -16,7 +16,7 @@ const AddCoffee = () => {
             photo: e.target.photo.value,
         };
         console.log(newCoffee);
-        fetch("http://localhost:5500/coffees", {
+        fetch("https://coffee-shop-server-sm.vercel.app/coffees", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newCoffee),
