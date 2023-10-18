@@ -1,6 +1,6 @@
-import BackToHome from "./BackToHome";
-import Footer from "./Footer";
-import Header from "./Header";
+import BackToHome from "./shared/BackToHome";
+import Footer from "./shared/Footer";
+import Header from "./shared/Header";
 
 const ErrorPage = () => {
     return (

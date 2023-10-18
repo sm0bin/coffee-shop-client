@@ -5,12 +5,17 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import Root from "./components/Root";
-import Home from "./components/Home";
-import AddCoffee from "./components/AddCoffee";
-import CoffeeDetails from "./components/CoffeeDetails";
-import UpdateCoffee from "./components/UpdateCoffee";
-import ErrorPage from "./components/ErrorPage";
+import Root from "./pages/Root";
+import Home from "./pages/Home";
+import ErrorPage from "./pages/ErrorPage";
+import AddCoffee from "./pages/shared/AddCoffee";
+import CoffeeDetails from "./pages/shared/CoffeeDetails";
+import UpdateCoffee from "./pages/shared/UpdateCoffee";
+import SignIn from "./pages/auth/SignIn";
+import SignUp from "./pages/auth/SignUp";
+import AuthProvider from "./providers/AuthProvider";
+import UsersTable from "./pages/shared/UsersTable";
+import PrivateRoute from "./routes/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -20,18 +25,18 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <PrivateRoute><Home></Home></PrivateRoute>,
         loader: () => fetch("http://localhost:5500/coffees"),
 
       },
       {
         path: "/coffees/new",
-        element: <AddCoffee></AddCoffee>,
+        element: <PrivateRoute><AddCoffee></AddCoffee></PrivateRoute>,
 
       },
       {
         path: "/coffees/:id/edit",
-        element: <UpdateCoffee></UpdateCoffee>,
+        element: <PrivateRoute><UpdateCoffee></UpdateCoffee></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5500/coffees/${params.id}`),
       },
       {
@@ -39,12 +44,28 @@ const router = createBrowserRouter([
         element: <CoffeeDetails></CoffeeDetails>,
         loader: ({ params }) => fetch(`http://localhost:5500/coffees/${params.id}`),
       },
+      {
+        path: "/sign-in",
+        element: <SignIn></SignIn>,
+      },
+      {
+        path: "/sign-up",
+        element: <SignUp></SignUp>,
+      },
+      {
+        path: "/users",
+        element: <PrivateRoute><UsersTable></UsersTable></PrivateRoute>,
+        loader: () => fetch("http://localhost:5500/users"),
+
+      },
     ]
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

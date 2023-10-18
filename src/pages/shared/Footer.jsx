@@ -2,7 +2,7 @@
 const Footer = () => {
     return (
         <footer className="bg-[url('/images/13.jpg')] mt-32" >
-            <div className="max-w-7xl mx-auto pt-32 pb-12">
+            <div className="max-w-7xl mx-5 md:mx-auto pt-32 pb-12">
                 <img className="h-24 mb-6" src="/images/logo1.png" alt="" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className="">

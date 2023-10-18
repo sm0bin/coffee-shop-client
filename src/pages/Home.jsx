@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import CoffeeCard from "./CoffeeCard";
+import CoffeeCard from "./shared/CoffeeCard";
 
 const Home = () => {
 
@@ -19,26 +19,26 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section className="w-full bg-orange-50 py-14">
+            <section className="w-full overflow-x-auto bg-orange-50 py-14">
                 <div className="flex justify-between gap-10 max-w-7xl mx-auto">
 
 
-                    <div className="">
+                    <div className="min-w-full md:min-w-0 px-5 md:p-0">
                         <img src="/images/icons/1.svg" alt="" />
                         <h3 className="font-rancho text-4xl mt-4 mb-2">Awesome Aroma</h3>
                         <p>You will definitely be a fan of the design & aroma of your coffee</p>
                     </div>
-                    <div className="">
+                    <div className="min-w-full md:min-w-0 px-5 md:p-0">
                         <img src="/images/icons/2.svg" alt="" />
                         <h3 className="font-rancho text-4xl mt-4 mb-2">High Quality</h3>
                         <p>Your coffee is brewed by first roasting the green coffee beans</p>
                     </div>
-                    <div className="">
+                    <div className="min-w-full md:min-w-0 px-5 md:p-0">
                         <img src="/images/icons/3.svg" alt="" />
                         <h3 className="font-rancho text-4xl mt-4 mb-2">Pure Grades</h3>
                         <p>The coffee is made of the green coffee beans which you will love</p>
                     </div>
-                    <div className="">
+                    <div className="min-w-full md:min-w-0 px-5 md:p-0">
                         <img src="/images/icons/4.svg" alt="" />
                         <h3 className="font-rancho text-4xl mt-4 mb-2">Proper Roasting</h3>
                         <p>We served the coffee to you maintaining the best quality</p>
@@ -56,7 +56,7 @@ const Home = () => {
                 </Link>
             </section>
 
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-5 lg:mx-auto">
                 {
                     coffees.map(coffee => (
                         <CoffeeCard key={coffee._id} coffee={coffee} coffees={coffees} setCoffees={setCoffees}></CoffeeCard>
